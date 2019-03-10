@@ -22,7 +22,7 @@ out = open(argv[3], "w+")
 out.write(str(size[0])+"\n")
 for i in range(size[0]):
     for j in range(size[1]):
-        if list_image[i][j]==255:
+        if list_image[i,j]==255:
             out.write(str(i)+" "+str(j)+"\n")
 
 
