@@ -2,12 +2,14 @@ from sys import argv
 from PIL import Image as im
 from PIL import ImageEnhance as ie
 from PIL import ImageOps as io
-import matplotlib.pyplot as plt
+
+if (len(argv)<4):
+    print("This program ")
+
 
 image = im.open(argv[1])
 
 size = (128, 128)
-
 if (image.size!=size):
     image = io.fit(image,size,im.ANTIALIAS)
 
@@ -20,10 +22,8 @@ out = open(argv[3], "w+")
 out.write(str(size[0])+"\n")
 for i in range(size[0]):
     for j in range(size[1]):
-        if list_image[i,j]==255:
+        if list_image[i][j]==255:
             out.write(str(i)+" "+str(j)+"\n")
 
-plt.imshow(image)
-plt.show()
 
 
